@@ -33,7 +33,7 @@ export class AppService implements OnApplicationBootstrap {
       const adminUser: CreateUserDto = {
         name: "Super Admin",
         email: "admin@test.com",
-        password: await bcrypt.hash("hello@12", 10),
+        password: "hello@12",
         role: UserRole.ADMIN,
         phone: "+923086011481"
       };
