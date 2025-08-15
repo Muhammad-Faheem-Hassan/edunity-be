@@ -9,7 +9,7 @@ import { UpdateCampusDto } from './dto/update-campus.dto';
 export class CampusService {
   constructor(
     @InjectModel(Campus.name) private campusModel: Model<CampusDocument>,
-  ) {}
+  ) { }
 
   async create(dto: CreateCampusDto): Promise<Campus> {
     return await this.campusModel.create(dto);
@@ -17,6 +17,10 @@ export class CampusService {
 
   async findAll(): Promise<Campus[]> {
     return await this.campusModel.find().exec();
+  }
+
+  async countCampuses(): Promise<number> {
+    return this.campusModel.countDocuments().exec();
   }
 
   async findOne(id: string): Promise<Campus> {

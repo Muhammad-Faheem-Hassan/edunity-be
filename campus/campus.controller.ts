@@ -5,7 +5,7 @@ import { UpdateCampusDto } from './dto/update-campus.dto';
 
 @Controller('campus')
 export class CampusController {
-  constructor(private readonly campusService: CampusService) {}
+  constructor(private readonly campusService: CampusService) { }
 
   @Post()
   create(@Body() createCampusDto: CreateCampusDto) {
@@ -15,6 +15,12 @@ export class CampusController {
   @Get()
   findAll() {
     return this.campusService.findAll();
+  }
+
+  @Get('count')
+  async getCampusCount() {
+    const count = await this.campusService.countCampuses();
+    return { total: count };
   }
 
   @Get(':id')

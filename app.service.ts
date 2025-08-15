@@ -1,5 +1,3 @@
-
-import * as bcrypt from 'bcrypt';
 import { UserRole } from './users/entities/user.entity';
 import { CreateUserDto } from './users/dto/create-user.dto';
 import { UsersService } from './users/users.service';

@@ -37,6 +37,10 @@ export class UsersService {
     return await this.userModel.find().exec();
   }
 
+  async countUsers() {
+    return this.userModel.countDocuments().exec();
+  }
+
   async findByEmail(email: string) {
     return await this.userModel.findOne({ email }).exec();
   }

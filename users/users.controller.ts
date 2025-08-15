@@ -17,6 +17,12 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
+  @Get('count')
+  async getUserCount() {
+    const count = await this.usersService.countUsers();
+    return { total: count };
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.usersService.findOne(+id);
